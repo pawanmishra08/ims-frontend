@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  background-color:rgba(244, 242, 242, 0.949);
+  width: 100vw;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background-color: white;
+}
+
+td, th {
+  border: 1px solid white;
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: white;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  width: 100%;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+  /* position: fixed; */
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  margin-bottom: 16px;
+  padding: 8px 16px;
+}
+
+input {
+  border: none;
+  padding: 8px 8px;
+  width: 100%;
+}
+
+.icon {
+  margin-right: 16px;
+}
+
+.icon, .search {
+  color: black;
+  height: 16px;
+  width: 16px;
+}

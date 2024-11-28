@@ -12,27 +12,27 @@ const Products = () => {
 
   const filterByName = (name: string) => {
     // filter Data by name
-    const filteredData = Data.filter(
-      ( item ) => item.name.toLowerCase() == name.toLowerCase()
+    const filteredData = Data?.filter(({ item } : any) =>
+      item.name.toLowerCase() == name.toLowerCase()
     );
     setFilteredData(filteredData);
     return filteredData;
   };
 
-  const fetchMockData = async () => {
+  const fetchItems = async () => {
     try {
       const response = await fetch (
         "http://localhost:8000/items" , {
           headers: {
             Authorization : 'Bearer ${AUTH_TOKEN}'
-          }
+          },
         }
       );
       console.log({ response });
       if (response.status === 200){
         const data = await response.json();
         console.log({ data });
-        setFilteredData(data);
+        setData( data );
       }
     }catch ( error ){
     console.error({ error});
@@ -41,13 +41,15 @@ const Products = () => {
 
   // filter data by name on search text change
   useEffect(() => {
-    fetchMockData();
+    fetchItems();
     if (searchText !== "") {
       filterByName(searchText);
     } else {
       setFilteredData(Data);
     }
   }, [searchText]);
+
+  const tableData = searchText ? filteredData : Data;
 
   // filterByName("marker");
 
@@ -74,7 +76,7 @@ const Products = () => {
           </tr>
         </thead>
         <tbody>
-          {filteredData.map((item) => (
+          {tableData.map(({ item }: any) => (
             <tr key={item.id}>
               <td>{item.id}</td>
               <td>{item.name}</td>

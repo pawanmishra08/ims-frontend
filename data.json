@@ -1,7 +1,7 @@
 [
     {
       "id": 1,
-      "name": "Marker",
+      "name": "Laptop",
       "description": "This is a description",
       "quantity": 4,
       "price": 30,
@@ -9,28 +9,28 @@
     },
     {
       "id": 2,
-      "name": "Duster",
+      "name": "soundbox",
       "description": "",
       "quantity": 4,
       "price": 50
     },
     {
       "id": 3,
-      "name": "Board",
+      "name": "Joystick",
       "description": "",
       "quantity": 10,
       "price": 500
     },
     {
       "id": 4,
-      "name": "Chair",
+      "name": "Camera",
       "description": "",
       "quantity": 12,
       "price": 1500
     },
     {
       "id": 5,
-      "name": "Desk",
+      "name": "MAC",
       "description": "",
       "quantity": 15,
       "price": 2000

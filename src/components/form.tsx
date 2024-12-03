@@ -25,7 +25,7 @@ const Form = () => {
       );
 
       console.log({ response });
-      if( response.status ===201){
+      if( response.status === 201){
         const data = await response.json();
         console.log({ data });
       }

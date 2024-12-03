@@ -29,10 +29,10 @@ export default function AddProduct() {
       const response = await axios({
         method: "POST",
         url: "http://localhost:3000/items",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${TOKEN}`
-        },
+        // headers: {
+        //   "Content-Type": "application/json",
+        //   "Authorization": `Bearer ${TOKEN}`
+        // },
         data:{
           name,
           description,

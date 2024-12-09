@@ -1,36 +1,43 @@
 import './App.css'
-import { Route, Routes } from 'react-router';
+import { Navigate, Route, Routes } from 'react-router';
 import Products from '././pages/products';
 import AddProduct from '././pages/products/addproduct';
 import Login from './pages/auth/login';
-// import Sales from '././pages/sales';
-// import AddSales from '././pages/sales/addSales';
+import Sales from '././pages/sales';
+import AppLayout from './pages/appLayout';
+import { useAuth } from "./context/authContext";
+import ProductDetail from './pages/products/productDetail';
+import CreateOrganization from './pages/auth/createOrganization';
+ //import AddSales from '././pages/sales/addSales';
 
+
+ //redirects to login page if the user is not authenticated
+  const ProtectedRoutes = () => {
+    const { isAuthenticated } = useAuth();
+    return isAuthenticated ? <AppLayout /> : <Navigate to = {"/login"} />;
+  };
 
 function App() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-
-      <AppRoutes />
-    </div>
-  );
-}
-
-function AppRoutes() {
-  return (
     <Routes>
       <Route path= "/login" element={<Login/>}/>
-      <Route path="/" element={<Products />} />
-      <Route path="/products" element={<Products />} />
+      <Route path= "/" element={<ProtectedRoutes/>}/>
+      <Route path= "/" element = {< Products />} />
       <Route path="/products/add" element={<AddProduct />} />
-      {/* <Route path="/" element={<Sales />} />
+      <Route path= "/products/detail/:id" element = {< ProductDetail/>} />
+      <Route path = "/organization/add" element= {< CreateOrganization />} />
+      <Route path="/sales" element={<Sales />} />
+      <Route path= "*" element={<p>Page Not Found!!!!!</p>}/>
+
+      {/* {/* <Route path="/" element={<Sales />} />
       <Route path="/sales" element={<Sales />} />
       <Route path="/sales/add" element={<AddSales />} /> */}
-
+      */
 
       {/* Add Sales Routes */}
+
     </Routes>
-  )
+  );
 }
 
 export default App;

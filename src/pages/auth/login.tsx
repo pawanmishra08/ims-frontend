@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import { api } from "../../api";
 import CustomInput from "../../components/customInput";
 import CustomButton from "../../components/customButton";
+import "./auth.css";
 
 export default function Login(){
  const [ username , setUsername] = useState("");

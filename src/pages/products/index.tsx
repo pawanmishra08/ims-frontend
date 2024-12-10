@@ -68,7 +68,7 @@ const Products = () => {
   const tableData = searchText ? filteredData : productData;
 
   return (
-    <div style={{ width: "50%", margin: "auto" }}>
+    <div>
       <h1>Products</h1>
       <div className="search-container">
         <Search width={16} height={16} className="icon search" />
@@ -79,7 +79,7 @@ const Products = () => {
           }}
         />
         <button
-          style={{ marginLeft: 16, padding: "4px 16px", width: "30%" }}
+          style={{ marginLeft: 16, padding: "4px", width: "30%" }}
           onClick={() => navigate("/products/add")}
         >
           + Add New

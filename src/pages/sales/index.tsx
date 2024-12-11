@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import { Search } from "lucide-react";
-import Data from "../../datasales.json";
 import "../../components/Table.css";
 const AUTH_TOKEN =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZUlkIjoxLCJvcmdhbml6YXRpb25JZCI6MiwibmFtZSI6IlN1amFuIEJoYXR0YXJhaSIsImVtYWlsIjoiYWNkZkBnbWFpbC5jb20iLCJtb2JpbGUiOiI5ODUyNDAxODc0NSIsInBhc3N3b3JkIjoiJDJiJDEwJGZlbW5RUGcuMXhRcEVtRjhjTW9sNk8xdTE0dHpybEhwNi5LQ1FmdktNRFRGb1pKMFRlZmlHIiwiY3JlYXRlZEF0IjoiMjAyNC0wOS0yNVQwOToyMzowNC45NjRaIiwidXBkYXRlZEF0IjoiMjAyNC0wOS0yNVQwOToyMzowNC45NjRaIiwicm9sZSI6eyJpZCI6MSwibmFtZSI6IlN1cGVyYWRtaW4ifSwiaWF0IjoxNzMyNjEwODUwLCJleHAiOjE3MzM5MDY4NTB9.V5sbX8qHpLoVSMvJBahZ1f57HzfyRa_fzZKeVyaf9yw";
+  "eyJhbGciOiJIUczI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZUlkIjoxLCJvcmdhbml6YXRpb25JZCI6MiwibmFtZSI6IlN1amFuIEJoYXR0YXJhaSIsImVtYWlsIjoiYWNkZkBnbWFpbC5jb20iLCJtb2JpbGUiOiI5ODUyNDAxODc0NSIsInBhc3N3b3JkIjoiJDJiJDEwJGZlbW5RUGcuMXhRcEVtRjhjTW9sNk8xdTE0dHpybEhwNi5LQ1FmdktNRFRGb1pKMFRlZmlHIiwiY3JlYXRlZEF0IjoiMjAyNC0wOS0yNVQwOToyMzowNC45NjRaIiwidXBkYXRlZEF0IjoiMjAyNC0wOS0yNVQwOToyMzowNC45NjRaIiwicm9sZSI6eyJpZCI6MSwibmFtZSI6IlN1cGVyYWRtaW4ifSwiaWF0IjoxNzMyNjEwODUwLCJleHAiOjE3MzM5MDY4NTB9.V5sbX8qHpLoVSMvJBahZ1f57HzfyRa_fzZKeVyaf9yw";
 
 const Sales = () => {
   const [searchNumber, setSearchNumber] = useState("");
   const [data, setData] = useState<any>([]);
   const [filteredData, setFilteredData] = useState<any>([]);
 
-  const headerKeys = Object.keys(Data[0]);
+  //const headerKeys = data && Object.keys(data[0]);
 
   const filterById = (id: number) => {
     // filter Data by name
@@ -44,12 +43,12 @@ const Sales = () => {
     if (searchNumber !== "") {
       filterById(parseInt(searchNumber));
     } else {
-      setFilteredData(Data);
+      setFilteredData(data);
     }
   }, [searchNumber]);
 
   // filterByName("marker");
-  const tableData = searchNumber ? filteredData : Data;
+  const tableData = searchNumber ? filteredData : data;
 
   return (
     <div style={{ width: "50%", margin: "auto" }}>
@@ -72,9 +71,7 @@ const Sales = () => {
       <table>
         <thead>
           <tr>
-            {headerKeys.map((key) => (
-              <th key={key}>{key}</th>
-            ))}
+          ¿
           </tr>
         </thead>
         <tbody>

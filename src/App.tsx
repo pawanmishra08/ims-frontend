@@ -26,7 +26,7 @@ function App() {
         <Route path="/products/add" element={<AddProduct />} />
         <Route path="/products/detail/:id" element={<ProductDetail />} />
         <Route path="/organization/add" element={<CreateOrganization />} />
-        <Route path="/sales" element={<Sales />} />
+        <Route path="/sales" element ={< Sales />} />
         <Route path="*" element={<p>Page Not Found!!!!!</p>} />
       </Route>
       {/* {/* <Route path="/" element={<Sales />} />

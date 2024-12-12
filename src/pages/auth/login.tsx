@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { api } from "../../api";
 import CustomInput from "../../components/customInput";
 import CustomButton from "../../components/customButton";
-import "./auth.css";
+import "../../components/Login.css";
 import { AuthContext } from "../../context/authContext";
 
 export default function Login(){

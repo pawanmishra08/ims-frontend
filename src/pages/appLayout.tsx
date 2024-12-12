@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import Header from "../components/Header";
+import Header from "./auth/Header";
 import Sidebar from "../components/sidebar";
 
 export default function AppLayout() {

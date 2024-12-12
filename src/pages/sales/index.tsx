@@ -71,7 +71,10 @@ const Sales = () => {
       <table>
         <thead>
           <tr>
-          ¿
+          <th>SN</th>
+          <th>Items</th>
+          <th>description</th>
+
           </tr>
         </thead>
         <tbody>

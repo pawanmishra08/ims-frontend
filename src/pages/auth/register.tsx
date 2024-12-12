@@ -1,35 +1,96 @@
-function Register() {
-    // const [organizationId, setOrganizationId] = useState(null);
-    return (
-      <div>
-        <h1>Register</h1>
-        {/* 1st Step */}
-        {/*
-        Create a new Organization
-        Form Fields:
-        - Name - text input
-        - OrganizationType: retail or wholesale - Radio || Select
-        - address - text input
-        - phone - text input
+import { useState } from "react";
+import "../../components/signup.css";
+import { useLocation,useNavigate } from "react-router";
+import { api } from "../../api";
 
-        Method:
-        - handleCreateOrganization - POST /organization
-          - Request Body: { name, organizationType, address, phone }
-          - onSuccess: navigate to register page e.g navigate('/register', { state: { organizationId: response.data.id } })
+const SignUp = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [mobile, setMobile] = useState("");
+  const { state } = useLocation();
+  const organizationId = state?.organizationId;
+  const navigate = useNavigate();
 
-        */}
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("Submitting signup for:", { name, email, mobile, password });
 
-         {/*
-          2nd Step
-          Register as user
-          import { useLocation } from "react-router";
-          const { state } = useLocation();
-          const organizationId = state.organizationId;
-        */}
 
-        <div>
-          <form></form>
+    try {
+      const response = await api.post("/auth/register", {
+        name,
+        email,
+        mobile,
+        password,
+        organizationId:organizationId && parseInt(organizationId,10),
+        role: "Admin",
+      });
+
+      if (response.status === 201) {
+        console.log("Signup successful:", response.data);
+        navigate("/")
+      localStorage.setItem("token", response.data.token);
+
+      }
+    } catch (error: any) {
+      console.error(
+        "Signup failed:",
+        error.response ? error.response.data : error.message
+      );
+    }
+  };
+
+  return (
+    <div className="signup-form">
+      <h2>Signup</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter your username"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
-      </div>
-    );
-  }
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="phone">Phone </label>
+          <input
+            type="phone"
+            id="phone"
+            placeholder="Enter your phone number"
+            value={mobile}
+            onChange={(e) => setMobile(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button className="signup-button" type="submit">
+          Signup
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default SignUp;

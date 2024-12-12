@@ -1,4 +1,4 @@
-import { PackageOpen, ReceiptText, User2 } from "lucide-react";
+import { Building2, PackageOpen, ReceiptText, ShoppingCart, User2, UsersRound } from "lucide-react";
 import { NavLink } from "react-router";
 
 export default function Sidebar() {
@@ -24,6 +24,24 @@ export default function Sidebar() {
           <NavLink to="/ads" className={({ isActive }) => isActive ? "active-item" : ""}>
             <User2 />
             Users
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/ads" className={({ isActive }) => isActive ? "active-item" : ""}>
+            <Building2 />
+            Organization
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/ads" className={({ isActive }) => isActive ? "active-item" : ""}>
+            <UsersRound />
+            Customer Vendor
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/ads" className={({ isActive }) => isActive ? "active-item" : ""}>
+            <ShoppingCart />
+            Purchase
           </NavLink>
         </li>
       </ul>

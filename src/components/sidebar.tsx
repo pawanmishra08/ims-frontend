@@ -21,25 +21,25 @@ export default function Sidebar() {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/ads" className={({ isActive }) => isActive ? "active-item" : ""}>
+          <NavLink to="/Users" className={({ isActive }) => isActive ? "active-item" : ""}>
             <User2 />
             Users
           </NavLink>
         </li>
         <li>
-          <NavLink to="/ads" className={({ isActive }) => isActive ? "active-item" : ""}>
+          <NavLink to="/Organization" className={({ isActive }) => isActive ? "active-item" : ""}>
             <Building2 />
             Organization
           </NavLink>
         </li>
         <li>
-          <NavLink to="/ads" className={({ isActive }) => isActive ? "active-item" : ""}>
+          <NavLink to="/Customer Vendor" className={({ isActive }) => isActive ? "active-item" : ""}>
             <UsersRound />
             Customer Vendor
           </NavLink>
         </li>
         <li>
-          <NavLink to="/ads" className={({ isActive }) => isActive ? "active-item" : ""}>
+          <NavLink to="/Purchase" className={({ isActive }) => isActive ? "active-item" : ""}>
             <ShoppingCart />
             Purchase
           </NavLink>

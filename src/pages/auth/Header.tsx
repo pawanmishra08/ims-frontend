@@ -1,5 +1,6 @@
 import { Bell, Search, UserCircle } from "lucide-react";
 import { useState } from "react";
+import "../../components/Header.css"
 
 const Header = () => {
   const [isclicked , setIsClicked] = useState(false);

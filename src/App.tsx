@@ -9,7 +9,7 @@ import { useAuth } from "./context/authContext";
 import ProductDetail from "./pages/products/productDetail";
 import addorganization from "./pages/auth/addorganization";
 import sales from './pages/sales';
-import SignUp from "./pages/auth/register";
+import SignUp from "./pages/auth/signup";
 import AddOrganization from "./pages/auth/addorganization";
 
 //redirects to login page if the user is not authenticated

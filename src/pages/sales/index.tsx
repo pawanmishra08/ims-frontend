@@ -74,7 +74,6 @@ const Sales = () => {
           <th>SN</th>
           <th>Items</th>
           <th>description</th>
-
           </tr>
         </thead>
         <tbody>

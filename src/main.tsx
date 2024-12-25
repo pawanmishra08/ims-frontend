@@ -4,18 +4,17 @@ import "./index.css";
 import App from "./App.tsx";
 import { BrowserRouter } from "react-router";
 import { Authprovider } from "./context/authContext.tsx";
-import { UserProvider } from "./context/userContext.tsx";
-import { Store } from "lucide-react";
+import store from "./redux/store.ts";
+import { Provider } from "react-redux";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <UserProvider>
-    <Authprovider store = { Store }>
-    <BrowserRouter>
-
-       <App />
-    </BrowserRouter>
-    </Authprovider>
-    </UserProvider>
+    <Provider store={store}>
+      <Authprovider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Authprovider>
+    </Provider>
   </StrictMode>
 );

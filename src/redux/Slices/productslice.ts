@@ -1,21 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const productSlice = createSlice({
-    name : "products",
+    name : "product",
     initialState: {
     data : [],
     items : {},
     },
     reducers: {
-        AddProduct: (state, action) => {
+        addProducts: (state, action) => {
             console.log({ action });
             state.data = action.payload;
         },
         findone: (state, action) => {
             const { id } = action.payload;
-            const products = state.data.findone((Products: any) => products.items.id === id);
-            if(products){
-                state.items = products;
+            const product : any = state.data.find((Products: any) => product.items.id === id);
+            if (product) {
+                state.items = product;
             }
         }
     }
@@ -23,6 +23,6 @@ export const productSlice = createSlice({
 
 
 //Export the actions
-export const { AddProduct , findone } = productSlice.actions;
+export const { addProducts , findone } = productSlice.actions;
 
 export default productSlice.reducer;

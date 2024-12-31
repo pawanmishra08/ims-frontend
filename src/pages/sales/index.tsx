@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Search } from "lucide-react";
-import "../../components/Table.css";
+import "../../components/table.css";
 const AUTH_TOKEN =
   "eyJhbGciOiJIUczI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZUlkIjoxLCJvcmdhbml6YXRpb25JZCI6MiwibmFtZSI6IlN1amFuIEJoYXR0YXJhaSIsImVtYWlsIjoiYWNkZkBnbWFpbC5jb20iLCJtb2JpbGUiOiI5ODUyNDAxODc0NSIsInBhc3N3b3JkIjoiJDJiJDEwJGZlbW5RUGcuMXhRcEVtRjhjTW9sNk8xdTE0dHpybEhwNi5LQ1FmdktNRFRGb1pKMFRlZmlHIiwiY3JlYXRlZEF0IjoiMjAyNC0wOS0yNVQwOToyMzowNC45NjRaIiwidXBkYXRlZEF0IjoiMjAyNC0wOS0yNVQwOToyMzowNC45NjRaIiwicm9sZSI6eyJpZCI6MSwibmFtZSI6IlN1cGVyYWRtaW4ifSwiaWF0IjoxNzMyNjEwODUwLCJleHAiOjE3MzM5MDY4NTB9.V5sbX8qHpLoVSMvJBahZ1f57HzfyRa_fzZKeVyaf9yw";
 
@@ -74,10 +74,15 @@ const Sales = () => {
           <th>SN</th>
           <th>Items</th>
           <th>description</th>
+          <th>customerId</th>
+          <th>SubTotal</th>
+          <th>discount</th>
+          <th>beforeTax</th>
+          <th>taxAmount</th>
           </tr>
         </thead>
         <tbody>
-          {tableData.map(({ item }: any) => (
+          {tableData?.map(({ item }: any) => (
             <tr key={item.id}>
               <td>{item.id}</td>
               <td>{item.OrderDate}</td>
@@ -96,6 +101,7 @@ const Sales = () => {
           This Sales is not available!!
         </p>
       )}
+
     </div>
   );
 };

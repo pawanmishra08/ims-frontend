@@ -13,7 +13,7 @@ export const productSlice = createSlice({
         },
         findone: (state, action) => {
             const { id } = action.payload;
-            const product : any = state.data.find((Products: any) => product.items.id === id);
+            const product : any = state.data.find((product: any) => product.items.id === id);
             if (product) {
                 state.items = product;
             }

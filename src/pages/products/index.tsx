@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { api } from "../../api";
 import { useSelector, useDispatch } from "react-redux";
 import { addProducts, findone } from "../../redux/Slices/productslice";
+import { Search } from "lucide-react";
+import { useNavigate } from "react-router";
+
 
 interface Item {
   id: number;
@@ -14,7 +17,7 @@ interface Item {
 }
 
 interface ItemResponse {
-  item: Item;
+  items: Item;
 }
 
 const Products = () => {
@@ -26,11 +29,13 @@ const Products = () => {
   const {data: products, item} = useSelector((state: any) => state.products);
   console.log({ products });
 
+  const navigate = useNavigate()
+
 
   const filterByName = (name: string) => {
     // filter Data by name
     const filteredData = products.filter(
-      ({ item }: ItemResponse) => item.name.toLowerCase() == name.toLowerCase()
+      ({ items }: ItemResponse) => items.name.toLowerCase() == name.toLowerCase()
     );
     setFilteredData(filteredData);
     return filteredData;
@@ -50,6 +55,10 @@ const Products = () => {
     }
   };
 
+  const handleDelete = (itemID: number) => {
+    // API cal to delete item
+  }
+
   // filter data by name on search text change
   useEffect(() => {
     fetchMockData();
@@ -68,11 +77,12 @@ const Products = () => {
   }, [products]);
 
   const tableData = products ?? [];
+  console.log({tableData})
 
   return (
     <div>
       <h1>Products</h1>
-      {/* <div className="search-container">
+       <div className="search-container">
         <Search width={16} height={16} className="icon search" />
         <input
           placeholder="type name..."
@@ -86,7 +96,7 @@ const Products = () => {
         >
           + Add New
         </button>
-      </div> */}
+      </div>
       <table>
         <thead>
           <tr>
@@ -100,17 +110,17 @@ const Products = () => {
           </tr>
         </thead>
         <tbody>
-          {tableData?.map(({item}: ItemResponse) => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.name}</td>
-              <td>{item.description}</td>
-              <td>{item.quantity}</td>
-              <td>{item.price}</td>
-              <td>{item.discount}</td>
+          {tableData?.map(({items}: ItemResponse) => (
+            <tr key={items.id}>
+              <td>{items.id}</td>
+              <td>{items.name}</td>
+              <td>{items.description}</td>
+              <td>{items.quantity}</td>
+              <td>{items.price}</td>
+              <td>{items.discount}</td>
               <td style={{ display: "flex", flexDirection: "row", gap: 4 }}>
                 <p>Edit</p>
-                <p>Delete</p>
+                <p onClick={() => handleDelete(items.id)}>Delete</p>
               </td>
             </tr>
           ))}

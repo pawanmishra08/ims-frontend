@@ -54,7 +54,7 @@ export default function AddProduct() {
       <h1>Add Products</h1>
       <form style={{ gap: 16 }} onSubmit={handleSubmit}>
         <CustomInput label="Name" setValue={setName} />
-        <CustomInput label="Description" setValue={setDescription} />
+        <CustomInput required={false} label="Description" setValue={setDescription} />
         <CustomInput type="number" label="Quantity" setValue={setQuantity} />
         <CustomInput type="number" label="Price" setValue={setPrice} />
         <CustomInput type="number" label="Discount" setValue={setDiscount} />

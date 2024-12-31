@@ -8,6 +8,8 @@ import AppLayout from "./pages/appLayout";
 import { useAuth } from "./context/authContext";
 import ProductDetail from "./pages/products/productDetail";
 import SignUp from "./pages/auth/signup";
+import Organizations from "./pages/organizations";
+import AddOrganizations from "./pages/organizations/addorganizations";
 
 //redirects to login page if the user is not authenticated
 const ProtectedRoutes = () => {
@@ -26,8 +28,10 @@ function App() {
         <Route path="/products/add" element={<AddProduct />} />
         <Route path="/products/detail/:id" element={<ProductDetail />} />
         <Route path="/sales" element ={<Sales />} />
+        <Route path="/organizations" element ={<Organizations />} />
+        <Route path="/organizations/add" element ={<AddOrganizations />} />
         <Route path="*" element={<p>Page Not Found!!!!!</p>} />
-        </Route>
+      </Route>
       /* {/* <Route path="/" element={<Sales />} />
       <Route path="/sales" element={<Sales />} />
       <Route path="/sales/add" element={<AddSales />} /> */}

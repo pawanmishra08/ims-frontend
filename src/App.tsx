@@ -10,6 +10,7 @@ import ProductDetail from "./pages/products/productDetail";
 import SignUp from "./pages/auth/signup";
 import Organizations from "./pages/organizations";
 import AddOrganizations from "./pages/organizations/addorganizations";
+import AddSales from "./pages/sales/addsales";
 
 //redirects to login page if the user is not authenticated
 const ProtectedRoutes = () => {
@@ -27,7 +28,8 @@ function App() {
         <Route index path="/products" element={<Products />} />
         <Route path="/products/add" element={<AddProduct />} />
         <Route path="/products/detail/:id" element={<ProductDetail />} />
-        <Route path="/sales" element ={<Sales />} />
+        <Route path="/sales" element={<Sales />} />
+        <Route path="/sales/add" element={<AddSales/>}  />
         <Route path="/organizations" element ={<Organizations />} />
         <Route path="/organizations/add" element ={<AddOrganizations />} />
         <Route path="*" element={<p>Page Not Found!!!!!</p>} />

@@ -13,10 +13,8 @@ export default function AddProduct() {
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
   const [discount, setDiscount] = useState("");
-  const [discountType, setDiscountType] = useState<DISCOUNT_TYPE>(DISCOUNT_TYPE.AMOUNT);
-  const [error, setError] = useState<null | string>(null);
-
-
+  const [discountType, setDiscountType] = useState<DISCOUNT_TYPE>(DISCOUNT_TYPE.AMOUNT)
+  const [error , setError] = useState("");
 
   const handleSubmit = (e:any) => {
     e.preventDefault();

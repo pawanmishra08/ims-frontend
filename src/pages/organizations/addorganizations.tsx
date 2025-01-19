@@ -91,7 +91,7 @@ const AddOrganization = () => {
         </div>
         {error && <p className="error-message">{error}</p>}
         <button className="signup-button" type="submit">
-          Create
+          Submit
         </button>
       </form>
     </div>

@@ -84,7 +84,7 @@ const Sales = () => {
           </tr>
         </thead>
         <tbody>
-          {tableData.map(({ item }: any) => (
+          {tableData?.map(({ item }: any) => (
             <tr key={item.id}>
               <td>{item.id}</td>
               <td>{item.OrderDate}</td>
@@ -107,4 +107,95 @@ const Sales = () => {
   );
 };
 
-export default Sales;
+export default Sales;
+
+//If data is send from frontend then use this below code:
+// import { useEffect, useState } from "react";
+// import { Search } from "lucide-react";
+// import Data from "../../datasales.json"; // Import the JSON data
+// import "../../components/Table.css";
+
+// const Sales = () => {
+//   const [searchNumber, setSearchNumber] = useState("");
+//   const [data, setData] = useState<any>([]); // Use lowercase 'data' to avoid confusion with imported Data
+//   const [filteredData, setFilteredData] = useState<any>([]);
+
+//   // Set the data from the imported JSON
+//   useEffect(() => {
+//     setData(Data); // Set the data from the imported JSON
+//     setFilteredData(Data); // Initialize filteredData with the same data
+//   }, []);
+
+//   const filterById = (id: number) => {
+//     const filteredData = data.filter((item: any) => item.id === id);
+//     setFilteredData(filteredData);
+//   };
+
+//   // Filter data by ID on search text change
+//   useEffect(() => {
+//     if (searchNumber !== "") {
+//       filterById(parseInt(searchNumber));
+//     } else {
+//       setFilteredData(data);
+//     }
+//   }, [searchNumber, data]); // Add 'data' as a dependency
+
+//   const tableData = searchNumber ? filteredData : data;
+//   console.log(tableData);
+
+//   return (
+//     <div style={{ width: "50%", margin: "auto" }}>
+//       <h1>Sales</h1>
+//       <div className="search-container">
+//         <Search width={16} height={16} className="icon search" />
+//         <input
+//           placeholder="type id..."
+//           onChange={(e) => {
+//             setSearchNumber(e.target.value);
+//           }}
+//         />
+//         <button
+//           style={{ marginLeft: 16, padding: "4px 16px", width: "30%" }}
+//           onClick={() => {}}
+//         >
+//           + Add New
+//         </button>
+//       </div>
+//       <table>
+//         <thead>
+//           <tr>
+//             <th>Id</th>
+//             <th>OrderDate</th>
+//             <th>Description</th>
+//             <th>customerId</th>
+//             <th>SubTotal</th>
+//             <th>discount</th>
+//             <th>beforeTax</th>
+//             <th>taxAmount</th>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           {tableData.map((item: any) => (
+//             <tr key={item.id}>
+//               <td>{item.id}</td>
+//               <td>{item.OrderDate}</td>
+//               <td>{item.description}</td>
+//               <td>{item.customerId}</td>
+//               <td>{item.SubTotal}</td>
+//               <td>{item.discount}</td>
+//               <td>{item.beforeTax}</td>
+//               <td>{item.taxAmount}</td>
+//             </tr>
+//           ))}
+//         </tbody>
+//       </table>
+//       {tableData.length === 0 && (
+//         <p style={{ width: "100%", textAlign: "center" }}>
+//           This Sales is not available!!
+//         </p>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default Sales;

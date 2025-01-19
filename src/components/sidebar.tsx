@@ -29,7 +29,7 @@ export default function Sidebar() {
         <li>
           <NavLink to="/Organizations" className={({ isActive }) => isActive ? "active-item" : ""}>
             <Building2 />
-            Organization
+            Organizations
           </NavLink>
         </li>
         <li>
